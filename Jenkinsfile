@@ -1,10 +1,8 @@
+#!/usr/bin/groovy
 
-node("launchpad-nodejs") {
-  checkout scm
-  stage("Build") {
-    sh "npm install"
-  }
-  stage("Deploy") {
-    sh "npm run openshift"
-  }
+@Library('github.com/chmouel/osio-pipeline-helpers@master')
+def arg = null
+
+osio {
+  label = 'nodejs'
 }
